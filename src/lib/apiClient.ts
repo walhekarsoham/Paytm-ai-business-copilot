@@ -117,7 +117,8 @@ export type CopilotAnalysis = {
 
 export type AuthInput = { email: string; password: string; businessName?: string }
 
-const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api/v1').replace(/\/$/, '')
+const configuredApiUrl = (import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api/v1').replace(/\/$/, '')
+const apiBaseUrl = /\/api\/v1$/i.test(configuredApiUrl) ? configuredApiUrl : `${configuredApiUrl}/api/v1`
 const tokenKey = 'paytm-merchant-access-token'
 let accessToken: string | null = typeof window === 'undefined' ? null : window.sessionStorage.getItem(tokenKey)
 

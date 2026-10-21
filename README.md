@@ -20,6 +20,15 @@ python -m uvicorn app.main:app --reload --port 8000
 
 The interactive API documentation is at `http://localhost:8000/docs`.
 
+## Deploy on Render
+
+The root `render.yaml` defines a FastAPI web service and a Vite static site. In Render, create a **Blueprint** from this repository and provide these values when prompted:
+
+- `DATABASE_URL`: your Neon PostgreSQL connection string, including `sslmode=require`.
+- `CORS_ORIGINS`: a JSON array containing the deployed frontend origin, for example `["https://merchant-copilot-frontend.onrender.com"]`.
+
+Render generates `JWT_SECRET_KEY`. The API service applies Alembic migrations during startup and exposes `/health`. The frontend reads the API service URL from Render and adds `/api/v1` automatically. Keep database credentials and signing keys in Render environment variables, never in frontend variables or committed files.
+
 ## Start the frontend
 
 In another terminal, from the `merchant-copilot` project root:
@@ -40,4 +49,3 @@ python -m pytest
 ```
 
 Tests use SQLite and do not need Neon credentials. They cover authentication, merchant data isolation, and atomic sale/stock behavior.
-

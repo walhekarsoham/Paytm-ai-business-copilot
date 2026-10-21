@@ -28,6 +28,17 @@ The AI Copilot has a separate, read-only analytics/service layer. It defaults to
 
 `seed.py` prompts for the seed merchant email and password if `SEED_MERCHANT_EMAIL` and `SEED_MERCHANT_PASSWORD` are not set. The password prompt is not echoed. Seeding is idempotent by merchant email. A seed password is never stored in source.
 
+Frontend:
+```powershell
+npm run dev
+```
+
+Backend:
+```powershell
+cd C:\Users\merchant-copilot\backend
+.\.venv\Scripts\Activate.ps1
+python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
+```
 ## Schema
 
 | Table | Purpose and important relationships |
