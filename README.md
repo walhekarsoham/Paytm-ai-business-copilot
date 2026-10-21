@@ -8,7 +8,7 @@ Built with a React + Vite frontend, FastAPI backend, PostgreSQL on Neon, SQLAlch
 
 ## Live Demo
 
-**Link**: [Add your deployed application URL here.](https://merchant-copilot-frontend.onrender.com?utm_source=chatgpt.com)
+**Link**: [merchant-copilot.](https://merchant-copilot-frontend.onrender.com?utm_source=chatgpt.com)
 
 
 For testing purposes, use the merchant account registered through the application.
